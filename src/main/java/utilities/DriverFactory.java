@@ -1,10 +1,12 @@
-package Utilities;
+package utilities;
 
 import io.qameta.allure.Step;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+
+import java.time.Duration;
 
 public class DriverFactory {
     static WebDriver driver;
@@ -18,6 +20,7 @@ public class DriverFactory {
         } else {
             driver = new FirefoxDriver();
         }
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(Long.parseLong(System.getProperty("defaultWaitTime"))));
         if (maximize) {
             driver.manage().window().maximize();
         }
