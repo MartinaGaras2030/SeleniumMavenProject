@@ -7,9 +7,9 @@ import org.openqa.selenium.WebDriver;
 public class NewUserSignup {
     WebDriver driver;
     private String url = "https://automationexercise.com/login";
-    private By nameField = By.name("name");
-    private By emailField = By.cssSelector("input[data-qa='signup-email']");
-    private By SignUpButtom = By.xpath("//button[@data-qa='signup-button']");
+    private By nameField_input = By.name("name");
+    private By emailField_input = By.cssSelector("input[data-qa='signup-email']");
+    private By signUp_buttom = By.xpath("//button[@data-qa='signup-button']");
 
     public NewUserSignup(WebDriver driver) {
         this.driver = driver;
@@ -21,9 +21,9 @@ public class NewUserSignup {
 @Step("Enter name and email address ")
     public NewUserSignup signup(String username, String email) {
 
-        driver.findElement(nameField).sendKeys(username);
-        driver.findElement(emailField).sendKeys(email);
-        driver.findElement(SignUpButtom).click();
+        driver.findElement(nameField_input).sendKeys(username);
+        driver.findElement(emailField_input).sendKeys(email);
+        driver.findElement(signUp_buttom).click();
         return this;
 
     }
