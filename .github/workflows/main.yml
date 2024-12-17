@@ -2,7 +2,7 @@ name: E2E Tests
 
 on:
   schedule:
-    - cron: '46 11 17 12 2'  # Runs at 11
+    - cron: '50 11 17 12 2'  # Runs at 11
 
   pull_request:
     branches: [ "main" ]
@@ -35,7 +35,7 @@ jobs:
 
       - name: Run Tests
         continue-on-error: true
-        run: mvn test -DbrowserName="chrome" -DheadlessExecution="true" -Dtest="${{ github.event.inputs.testsPath }}"
+        run: mvn test -DbrowserName="chrome" -DheadlessExecution="true" -Dtest="test.cases.Register_User"
 
       - name: Generate Allure Report Single File
         continue-on-error: true
@@ -78,7 +78,7 @@ jobs:
 
       - name: Run Tests
         continue-on-error: true
-        run: mvn test -DbrowserName="edge" -DheadlessExecution="false" -Dtest="${{ github.event.inputs.testsPath }}"
+        run: mvn test -DbrowserName="edge" -DheadlessExecution="false" -Dtest="test.cases.Register_User"
 
       - name: Generate Allure Report Single File
         continue-on-error: true
