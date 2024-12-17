@@ -2,7 +2,7 @@ name: E2E Tests
 
 on:
   schedule:
-    - cron: '40 10 17 12 *'  # Runs at 12:30 12/17/2024
+    - cron: '0 2 * * 4'  # Runs every month at 2 AM on Thursday
 
   pull_request:
     branches: [ "main" ]
@@ -47,6 +47,9 @@ jobs:
           name: Chrome_Linux_Allure
           path: target/site/allure-maven-plugin/index.html
 
+      - name: Check Target Directory
+        run: ls -R target
+
       - name: Publish Test Results
         uses: EnricoMi/publish-unit-test-result-action@v2
         if: always()
@@ -87,6 +90,9 @@ jobs:
         with:
           name: Edge_Windows_Allure
           path: target/site/allure-maven-plugin/index.html
+
+      - name: Check Target Directory
+        run: dir target /s
 
       - name: Publish Test Results
         uses: EnricoMi/publish-unit-test-result-action/windows@v2
