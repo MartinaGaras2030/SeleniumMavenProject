@@ -35,7 +35,7 @@ jobs:
 
       - name: Run Tests
         continue-on-error: true
-        run: mvn test -DbrowserName="chrome" -Dallure.results.directory="target/allure-results" -DheadlessExecution="true" -Dtest="${{ github.event.inputs.testsPath }}"
+        run: mvn test -DbrowserName="chrome" -DheadlessExecution="true" -Dtest="${{ github.event.inputs.testsPath }}"
 
       - name: Generate Allure Report Single File
         continue-on-error: true
@@ -78,7 +78,7 @@ jobs:
 
       - name: Run Tests
         continue-on-error: true
-        run: mvn test -DbrowserName="edge" -Dallure.results.directory="target/allure-results" -DheadlessExecution="false" -Dtest="${{ github.event.inputs.testsPath }}"
+        run: mvn test -DbrowserName="edge" -DheadlessExecution="false" -Dtest="${{ github.event.inputs.testsPath }}"
 
       - name: Generate Allure Report Single File
         continue-on-error: true
