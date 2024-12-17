@@ -7,11 +7,11 @@ on:
   pull_request:
     branches: [ "main" ]
 
-#  workflow_dispatch:
-#    inputs:
-#      testsPath:
-#        description: 'Path to Tests to be Executed'
-#        default: ''
+  workflow_dispatch:
+   inputs:
+     testsPath:
+       description: 'Path to Tests to be Executed'
+       default: ''
 
 jobs:
   E2E_Chrome_Linux_Test:
@@ -35,7 +35,7 @@ jobs:
 
       - name: Run Tests
         continue-on-error: true
-        run: mvn test -DbrowserName="chrome" -DheadlessExecution="true" -Dtest="test.cases.Register_User"
+        run: mvn test -DbrowserName="chrome" -DheadlessExecution="true" -Dtest="${{ github.event.inputs.testsPath }}"
 
       - name: Generate Allure Report Single File
         continue-on-error: true
@@ -78,7 +78,7 @@ jobs:
 
       - name: Run Tests
         continue-on-error: true
-        run: mvn test -DbrowserName="edge" -DheadlessExecution="false" -Dtest="test.cases.Register_User"
+        run: mvn test -DbrowserName="edge" -DheadlessExecution="false" -Dtest="${{ github.event.inputs.testsPath }}"
 
       - name: Generate Allure Report Single File
         continue-on-error: true
