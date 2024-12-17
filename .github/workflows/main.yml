@@ -47,9 +47,6 @@ jobs:
           name: Chrome_Linux_Allure
           path: target/site/allure-maven-plugin/index.html
 
-      - name: Check Target Directory
-        run: ls -R target
-
       - name: Publish Test Results
         uses: EnricoMi/publish-unit-test-result-action@v2
         if: always()
@@ -91,8 +88,6 @@ jobs:
           name: Edge_Windows_Allure
           path: target/site/allure-maven-plugin/index.html
 
-      - name: Check Target Directory
-        run: dir target /s
 
       - name: Publish Test Results
         uses: EnricoMi/publish-unit-test-result-action/windows@v2
