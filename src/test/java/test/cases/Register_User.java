@@ -21,8 +21,8 @@ public class Register_User {
     private JsonFileManger testData;
     @BeforeClass
     public void setup() {
-        driver = initiateDriver(System.getProperty("browserName"),true,true);
-       // driver = new ChromeDriver();
+        driver = initiateDriver(System.getProperty("browserName"), Boolean.parseBoolean(System.getProperty("headlessExecution")),true);
+       // driver = new ChromeDriver()
        // driver.manage().window().maximize();
         testData=new JsonFileManger("src/test/resources/TestDataJsonFile/TestData.json");
     }
