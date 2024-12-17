@@ -2,16 +2,16 @@ name: E2E Tests
 
 on:
   schedule:
-    - cron: '44 11 17 12 2'  # Runs at 11
+    - cron: '46 11 17 12 2'  # Runs at 11
 
   pull_request:
     branches: [ "main" ]
 
-  workflow_dispatch:
-    inputs:
-      testsPath:
-        description: 'Path to Tests to be Executed'
-        default: ''
+#  workflow_dispatch:
+#    inputs:
+#      testsPath:
+#        description: 'Path to Tests to be Executed'
+#        default: ''
 
 jobs:
   E2E_Chrome_Linux_Test:
