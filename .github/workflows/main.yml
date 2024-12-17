@@ -2,7 +2,7 @@ name: E2E Tests
 
 on:
   schedule:
-    - cron: '30 12 17 12 2'  # Runs at 11
+    - cron: '30 10 17 12 2'  # Runs at 12:30 12/17/2024
 
   pull_request:
     branches: [ "main" ]
@@ -22,7 +22,7 @@ jobs:
       - name: Checkout Code
         uses: actions/checkout@v4
 
-      - name: Setup JDK 21
+      - name: Setup java JDK
         uses: actions/setup-java@v4
         with:
           distribution: 'zulu'
@@ -31,9 +31,9 @@ jobs:
       - name: Set up Maven
         uses: stCarolas/setup-maven@v4.5
         with:
-          maven-version: 3.9.6
+          maven-version: 3.9.9
 
-      - name: Run Tests
+      - name: Execute Tests
         continue-on-error: true
         run: mvn test -DbrowserName="chrome" -DheadlessExecution="true" -Dtest="${{ github.event.inputs.testsPath }}"
 
@@ -65,7 +65,7 @@ jobs:
       - name: Checkout Code
         uses: actions/checkout@v4
 
-      - name: Setup JDK 21
+      - name: Setup java JDK
         uses: actions/setup-java@v4
         with:
           distribution: 'zulu'
@@ -74,9 +74,9 @@ jobs:
       - name: Set up Maven
         uses: stCarolas/setup-maven@v4.5
         with:
-          maven-version: 3.9.6
+          maven-version: 3.9.9
 
-      - name: Run Tests
+      - name: Execute Tests
         continue-on-error: true
         run: mvn test -DbrowserName="edge" -DheadlessExecution="false" -Dtest="${{ github.event.inputs.testsPath }}"
 
