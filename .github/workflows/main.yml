@@ -52,9 +52,7 @@ jobs:
         if: always()
         with:
           files: |
-            test-results/**/*.xml
-            test-results/**/*.trx
-            test-results/**/*.json
+            target/surefire-reports/TEST-*.xml
 
 
   E2E_Edge_Windows_Test:
@@ -95,6 +93,4 @@ jobs:
         if: always()
         with:
           files: |
-            test-results\**\*.xml
-            test-results\**\*.trx
-            test-results\**\*.json
+            target/surefire-reports/TEST-*.xml
