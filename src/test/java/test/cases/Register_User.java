@@ -45,11 +45,10 @@ public class Register_User {
                 .assertionOnCreateAccount("ACCOUNT CREATED!")
                 .continueButton();
 
-       new MainMenu(driver).logout();
-//                .delete_account();
-//        new AccountDeleted(driver)
-//                .assertionOnDEleteAccount()
-//                .continueButton();
+       new MainMenu(driver).delete_account();
+        new AccountDeleted(driver)
+                .assertionOnDEleteAccount()
+                .continueButton();
     }
     @Test
     @Description("Test case 1 Login")
@@ -57,7 +56,7 @@ public class Register_User {
         new HomePage(driver).navigatetohome();
         new MainMenu(driver).signupLink();
         new Login(driver)
-                .login(testData.getTestData("email"),testData.getTestData("password"));
+                .login(testData.getTestData("registereduser"),testData.getTestData("password"));
         new MainMenu(driver)
                 .assertOnLoggedUser()
                 .delete_account();
