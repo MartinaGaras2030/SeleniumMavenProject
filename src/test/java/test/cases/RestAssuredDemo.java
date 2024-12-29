@@ -12,7 +12,6 @@ import static org.hamcrest.Matchers.equalTo;
 
 public class RestAssuredDemo {
 
-
     @Test
     public void CreateToken() {
         String body = """
